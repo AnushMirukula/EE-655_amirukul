@@ -1,0 +1,22 @@
+[
+    {
+        "id": "30326ff3a3a6495d",
+        "type": "openweathermap",
+        "z": "8d3e17aa33be7da8",
+        "name": "",
+        "wtype": "current",
+        "lon": "",
+        "lat": "",
+        "city": "birmingham",
+        "country": "USA",
+        "language": "en",
+        "x": 530,
+        "y": 860,
+        "wires": [
+            [
+                "e1110f93780c908d",
+                "89a49c316c560b82"
+            ]
+        ]
+    }
+]

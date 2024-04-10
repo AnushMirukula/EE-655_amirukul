@@ -1,0 +1,1140 @@
+[
+    {
+        "id": "8d3e17aa33be7da8",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3d440c20.e28004",
+        "type": "mqtt-broker",
+        "z": "8d3e17aa33be7da8",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "9c0ca454ecba4187",
+        "type": "ui_group",
+        "name": "Gauges",
+        "tab": "f3e7acdb1b19ada6",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "8a9fcbf80e7e1f0e",
+        "type": "ui_group",
+        "name": "Charts",
+        "tab": "f3e7acdb1b19ada6",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a137e0f6.0d404",
+        "type": "mqtt-broker",
+        "name": "Local MQTT Broker",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "ef88b2d8d70e5b54",
+        "type": "ui_group",
+        "name": "Vehicle Monitoring",
+        "tab": "f3e7acdb1b19ada6",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f3e7acdb1b19ada6",
+        "type": "ui_tab",
+        "name": "Car System",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "43abc12e76a41b81",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "7125ef1506e40ac7",
+        "type": "function",
+        "z": "8d3e17aa33be7da8",
+        "name": "Simulate Fuel Consumption",
+        "func": "// Function to simulate fuel consumption\nfunction simulateFuelConsumption() {\n    // Define base fuel consumption rate (in gallons per hour)\n    const baseFuelConsumption = 2.64; // Example base value in gallons per hour (10 liters per hour is roughly 2.64 gallons per hour)\n\n    // Simulate variations in fuel consumption based on conditions\n    let fuelConsumption = baseFuelConsumption;\n\n    // Calculate random variation within a specific range (e.g., -0.66 to 0.66 gallons per hour)\n    let randomVariation = Math.random() * 1.32 - 0.66; // Random value between -0.66 and 0.66 gallons per hour\n    fuelConsumption += randomVariation;\n\n    // Ensure fuel consumption doesn't go below zero\n    fuelConsumption = Math.max(0, fuelConsumption);\n\n    // Set the payload directly to the fuel consumption value\n    msg.payload = fuelConsumption.toFixed(2); // Round to 2 decimal places and assign to 'payload'\n\n    // Return the message object\n    return msg;\n\n    node.send(msg);\n    \n    \n}\n\n// Call the simulateFuelConsumption function to update the message object\nsimulateFuelConsumption();\n\n// Return the message object to pass to the next node (e.g., MQTT Out node)\nreturn msg;\n\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 100,
+        "wires": [
+            [
+                "d0900b658dd90cc1",
+                "aa5818afd56ddf15",
+                "56a6d9e69ec97828",
+                "356a8fdffdf48640"
+            ]
+        ]
+    },
+    {
+        "id": "dc5f6158de0811d2",
+        "type": "function",
+        "z": "8d3e17aa33be7da8",
+        "name": "Simulate Engine Temperature",
+        "func": "// Function to simulate engine temperature\nfunction simulateEngineTemperature() {\n    // Define minimum and maximum engine temperature (in degrees Celsius)\n    const minTemp = 70; // Minimum temperature\n    const maxTemp = 220; // Maximum temperature\n\n    // Generate a random engine temperature within the defined range\n    let engineTemperature = Math.floor(Math.random() * (maxTemp - minTemp + 1) + minTemp);\n\n    // Set the payload directly to the temperature value\n    msg.payload = engineTemperature;\n\n    // Return the message object to pass to the next node\n    return msg;\n}\n\n// Call the simulateEngineTemperature function to update the message object\nsimulateEngineTemperature();\n\n// Return the message object to pass to the next node (e.g., MQTT Out node)\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 240,
+        "wires": [
+            [
+                "5c4936018dd64f48",
+                "96e86b2b33f1b999",
+                "2f23a6b479472cfc",
+                "b756bc3bd2f885c7"
+            ]
+        ]
+    },
+    {
+        "id": "8b95bc2b79563757",
+        "type": "function",
+        "z": "8d3e17aa33be7da8",
+        "name": "Simulate Speed",
+        "func": "// Function to simulate speed data\nfunction simulateSpeed() {\n    // Define minimum and maximum speed values (in kilometers per hour)\n    const minSpeed = 0; // Minimum speed\n    const maxSpeed = 180; // Maximum speed\n\n    // Generate a random speed within the defined range\n    let speed = Math.floor(Math.random() * (maxSpeed - minSpeed + 1) + minSpeed);\n\n    // Create a message object with the simulated speed value in the payload\n    let msg = {\n        payload: speed.toFixed(2) // Round to 2 decimal places and set as payload\n    };\n\n    // Return the message object\n    return msg;\n}\n\n// Call the simulateSpeed function to get the message object\nlet speedMsg = simulateSpeed();\n\n// Return the message object to pass to the next node (e.g., MQTT Out node)\nreturn speedMsg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 360,
+        "wires": [
+            [
+                "f45324e08240f6c9",
+                "1382f5678b999d5b",
+                "0b363229047a0cc9",
+                "ddbd7458c923ca6e"
+            ]
+        ]
+    },
+    {
+        "id": "76b44df7f30ca4b8",
+        "type": "function",
+        "z": "8d3e17aa33be7da8",
+        "name": "Simulate Tire Pressure",
+        "func": "// Function to simulate tire consumption\nfunction simulateTireConsumption() {\n    // Define base tire consumption rate (in millimeters per hour)\n    const baseTireConsumption = 1.2; // Example base value in millimeters per hour\n\n    // Simulate variations in tire consumption based on conditions\n    let tireConsumption = baseTireConsumption;\n\n    // Calculate random variation within a specific range (e.g., -0.3 to 0.3 millimeters per hour)\n    let randomVariation = Math.random() * 0.6 - 0.3; // Random value between -0.3 and 0.3 millimeters per hour\n    tireConsumption += randomVariation;\n\n    // Ensure tire consumption doesn't go below zero\n    tireConsumption = Math.max(0, tireConsumption);\n\n    // Create a new message object with the tire consumption value in the payload\n    let newMsg = { payload: tireConsumption.toFixed(2) }; // Round to 2 decimal places and set as payload\n\n    // Return the new message object\n    return newMsg;\n}\n\n// Call the simulateTireConsumption function to update the message object\nlet newMsg = simulateTireConsumption();\n\n// Return the new message object to pass to the next node (e.g., MQTT Out node)\nreturn newMsg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 480,
+        "wires": [
+            [
+                "23037221c7e135df",
+                "c5d10db11c0de911",
+                "4d95d7d408eb7685"
+            ]
+        ]
+    },
+    {
+        "id": "d0900b658dd90cc1",
+        "type": "mqtt out",
+        "z": "8d3e17aa33be7da8",
+        "name": "Out Fuel Consumption",
+        "topic": "smart-car/telemetry/fuel_consumption",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3d440c20.e28004",
+        "x": 840,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "5c4936018dd64f48",
+        "type": "mqtt out",
+        "z": "8d3e17aa33be7da8",
+        "name": "Out Engine Temperature",
+        "topic": "smart-car/telemetry/engine_temperature",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3d440c20.e28004",
+        "x": 890,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "f45324e08240f6c9",
+        "type": "mqtt out",
+        "z": "8d3e17aa33be7da8",
+        "name": "Out Speed",
+        "topic": "smart-car/telemetry/speed",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3d440c20.e28004",
+        "x": 750,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "e98f380403e888d8",
+        "type": "inject",
+        "z": "8d3e17aa33be7da8",
+        "name": "Fuel Consumption",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "240",
+        "payloadType": "num",
+        "x": 150,
+        "y": 100,
+        "wires": [
+            [
+                "7125ef1506e40ac7"
+            ]
+        ]
+    },
+    {
+        "id": "2f73402bd158c377",
+        "type": "inject",
+        "z": "8d3e17aa33be7da8",
+        "name": "Engine Temperature",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "34",
+        "payload": "456",
+        "payloadType": "num",
+        "x": 150,
+        "y": 240,
+        "wires": [
+            [
+                "dc5f6158de0811d2"
+            ]
+        ]
+    },
+    {
+        "id": "356a4664b2452562",
+        "type": "inject",
+        "z": "8d3e17aa33be7da8",
+        "name": "Speed",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "345",
+        "payload": "23",
+        "payloadType": "num",
+        "x": 110,
+        "y": 360,
+        "wires": [
+            [
+                "8b95bc2b79563757"
+            ]
+        ]
+    },
+    {
+        "id": "cb3391ec50c56b26",
+        "type": "inject",
+        "z": "8d3e17aa33be7da8",
+        "name": "tier Pressure",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "num",
+        "x": 130,
+        "y": 480,
+        "wires": [
+            [
+                "76b44df7f30ca4b8"
+            ]
+        ]
+    },
+    {
+        "id": "23037221c7e135df",
+        "type": "mqtt out",
+        "z": "8d3e17aa33be7da8",
+        "name": "Out Tire Pressure",
+        "topic": "smart-car/telemetry/tire_pressure",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3d440c20.e28004",
+        "x": 766.2499847412109,
+        "y": 483.74999237060547,
+        "wires": []
+    },
+    {
+        "id": "c5d10db11c0de911",
+        "type": "ui_gauge",
+        "z": "8d3e17aa33be7da8",
+        "name": "",
+        "group": "9c0ca454ecba4187",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Tire Press",
+        "label": "psi",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "15",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 576.2499847412109,
+        "y": 523.7499923706055,
+        "wires": []
+    },
+    {
+        "id": "96e86b2b33f1b999",
+        "type": "ui_gauge",
+        "z": "8d3e17aa33be7da8",
+        "name": "",
+        "group": "9c0ca454ecba4187",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Engine Temp",
+        "label": "Kelvin",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "500",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 650,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "aa5818afd56ddf15",
+        "type": "ui_chart",
+        "z": "8d3e17aa33be7da8",
+        "name": "",
+        "group": "8a9fcbf80e7e1f0e",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Fuel Consumption",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "15",
+        "removeOlder": "1",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#ff9300",
+            "#aec7e8",
+            "#fffb00",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#00fdff"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 690,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6b6eb021.33a5b",
+        "type": "comment",
+        "z": "8d3e17aa33be7da8",
+        "name": "Simulated Data and Exception Handling",
+        "info": "",
+        "x": 850,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "4d989ce8665fbcb4",
+        "type": "inject",
+        "z": "8d3e17aa33be7da8",
+        "name": "Seat Belt Sensor Data",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"seatbelt\":\"disengaged\"}",
+        "payloadType": "json",
+        "x": 140,
+        "y": 660,
+        "wires": [
+            [
+                "d39a2c07.ea7e78",
+                "c825d588fd196f2e"
+            ]
+        ]
+    },
+    {
+        "id": "1d357da7.6f4939",
+        "type": "mqtt out",
+        "z": "8d3e17aa33be7da8",
+        "name": "Publish Seat Belt Status",
+        "topic": "smart-car/seat_belt_status",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a137e0f6.0d404",
+        "x": 950,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "d39a2c07.ea7e78",
+        "type": "switch",
+        "z": "8d3e17aa33be7da8",
+        "name": "Check Seat Belt Status",
+        "property": "payload.seatbelt",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "engaged",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "disengaged",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 430,
+        "y": 660,
+        "wires": [
+            [
+                "7f5563c4.781b6c"
+            ],
+            [
+                "ab5e8fc5.2e0a28"
+            ]
+        ]
+    },
+    {
+        "id": "7f5563c4.781b6c",
+        "type": "function",
+        "z": "8d3e17aa33be7da8",
+        "name": "Engaged Action",
+        "func": "// Perform actions when seat belt is engaged\nmsg.payload = \"On\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 620,
+        "wires": [
+            [
+                "1d357da7.6f4939",
+                "27990806d5967b21"
+            ]
+        ]
+    },
+    {
+        "id": "ab5e8fc5.2e0a28",
+        "type": "function",
+        "z": "8d3e17aa33be7da8",
+        "name": "Disengaged Action",
+        "func": "// Perform actions when seat belt is disengaged\nmsg.payload = \"Off\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 680,
+        "wires": [
+            [
+                "1d357da7.6f4939",
+                "eee3347939313665"
+            ]
+        ]
+    },
+    {
+        "id": "c825d588fd196f2e",
+        "type": "ui_switch",
+        "z": "8d3e17aa33be7da8",
+        "name": "Seat Belt Switch",
+        "label": "Seat Belt Status",
+        "tooltip": "",
+        "group": "ef88b2d8d70e5b54",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "engaged",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "disengaged",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "className": "",
+        "x": 460,
+        "y": 740,
+        "wires": [
+            [
+                "d39a2c07.ea7e78"
+            ]
+        ]
+    },
+    {
+        "id": "1382f5678b999d5b",
+        "type": "ui_gauge",
+        "z": "8d3e17aa33be7da8",
+        "name": "",
+        "group": "8a9fcbf80e7e1f0e",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "speed",
+        "label": "mph",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "220",
+        "colors": [
+            "#ffffff",
+            "#00fdff",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 650,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "56a6d9e69ec97828",
+        "type": "debug",
+        "z": "8d3e17aa33be7da8",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "2f23a6b479472cfc",
+        "type": "debug",
+        "z": "8d3e17aa33be7da8",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "0b363229047a0cc9",
+        "type": "debug",
+        "z": "8d3e17aa33be7da8",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 970,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "4d95d7d408eb7685",
+        "type": "debug",
+        "z": "8d3e17aa33be7da8",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1010,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "27990806d5967b21",
+        "type": "debug",
+        "z": "8d3e17aa33be7da8",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "eee3347939313665",
+        "type": "debug",
+        "z": "8d3e17aa33be7da8",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "30326ff3a3a6495d",
+        "type": "openweathermap",
+        "z": "8d3e17aa33be7da8",
+        "name": "",
+        "wtype": "current",
+        "lon": "",
+        "lat": "",
+        "city": "birmingham",
+        "country": "USA",
+        "language": "en",
+        "x": 530,
+        "y": 860,
+        "wires": [
+            [
+                "e1110f93780c908d",
+                "89a49c316c560b82"
+            ]
+        ]
+    },
+    {
+        "id": "cb1001a1fa0ba766",
+        "type": "inject",
+        "z": "8d3e17aa33be7da8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 860,
+        "wires": [
+            [
+                "30326ff3a3a6495d"
+            ]
+        ]
+    },
+    {
+        "id": "e1110f93780c908d",
+        "type": "debug",
+        "z": "8d3e17aa33be7da8",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "89a49c316c560b82",
+        "type": "ui_gauge",
+        "z": "8d3e17aa33be7da8",
+        "name": "",
+        "group": "9c0ca454ecba4187",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{msg.payload.tempk}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 700,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "ddbd7458c923ca6e",
+        "type": "ui_chart",
+        "z": "8d3e17aa33be7da8",
+        "name": "",
+        "group": "9c0ca454ecba4187",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 420,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8945b2eee2d279f5",
+        "type": "inject",
+        "z": "8d3e17aa33be7da8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "open",
+        "payloadType": "str",
+        "x": 390,
+        "y": 960,
+        "wires": [
+            [
+                "fd691d8a6d622141"
+            ]
+        ]
+    },
+    {
+        "id": "4e5fbd0e9db89932",
+        "type": "inject",
+        "z": "8d3e17aa33be7da8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "close",
+        "payloadType": "str",
+        "x": 390,
+        "y": 1040,
+        "wires": [
+            [
+                "fd691d8a6d622141"
+            ]
+        ]
+    },
+    {
+        "id": "fd691d8a6d622141",
+        "type": "function",
+        "z": "8d3e17aa33be7da8",
+        "name": "function 1",
+        "func": "try {  \nif(msg.payload===\"open\"){\n    msg.payload = \"open\"\n}\nelse{\n    msg.payload=\"close\"\n}\nreturn msg;\n} catch (error) {\n    // Error handling\n    node.error(error.message, msg);\n    // Optionally, you can send the error message to a debug node or log it\n    return null; // Optionally, stop the flow by returning null\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 1000,
+        "wires": [
+            [
+                "02957256b9d48073"
+            ]
+        ]
+    },
+    {
+        "id": "02957256b9d48073",
+        "type": "ui_led",
+        "z": "8d3e17aa33be7da8",
+        "order": 4,
+        "group": "9c0ca454ecba4187",
+        "width": 0,
+        "height": 0,
+        "label": "Door status",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "open",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "close",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 810,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "356a8fdffdf48640",
+        "type": "ui_toast",
+        "z": "8d3e17aa33be7da8",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 920,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "b756bc3bd2f885c7",
+        "type": "ui_toast",
+        "z": "8d3e17aa33be7da8",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 960,
+        "y": 160,
+        "wires": []
+    }
+]
